@@ -1,0 +1,39 @@
+# Ignorar dependências e builds
+node_modules
+dist
+build
+coverage
+
+# Logs e temporários
+*.log
+*.tmp
+*.cache
+
+# Configurações e lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Saídas de testes
+jest-html-reporters-*
+test-results
+reports
+
+# Diretórios de banco de dados e migrações geradas
+migrations/*.js
+seeds/*.js
+
+# Arquivos de ambiente
+.env
+.env.*
+
+# Docker e CI
+Dockerfile
+docker-compose.yml
+
+# Documentação gerada
+docs
+*.md
+
+# Ignorar o próprio arquivo Prettier
+.prettierignore

@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres
+    container_name: postgres_local
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: pstg
+      POSTGRES_DB: dev
+    ports:
+      - "5432:5432"
+
+volumes:
+  pgdata:

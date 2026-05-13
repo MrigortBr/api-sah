@@ -1,0 +1,246 @@
+{
+	"info": {
+		"_postman_id": "997a4c7a-ce3a-4669-a881-6ad9d8dfae39",
+		"name": "newProjectPlaneja",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46482789",
+		"_collection_link": "https://mrigortbr.postman.co/workspace/MrIgortbr's-Workspace~0bb08ee1-a524-4c85-8c5f-9d6e5244ae18/collection/46482789-997a4c7a-ce3a-4669-a881-6ad9d8dfae39?action=share&source=collection_link&creator=46482789"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"igor pereira lins\",\r\n    \"password\": \"Ig@rt1227\",\r\n    \"email\": \"igortbr6@hotmail.com\",\r\n    \"cpf\": \"12960159470\",\r\n    \"number\": \"997938091\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:2000/register",
+							"host": [
+								"localhost"
+							],
+							"port": "2000",
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"Ig@rt1227\",\r\n    \"email\": \"igortbr0412@hotmail.com\",\r\n    \"remember\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:2000/login",
+							"host": [
+								"localhost"
+							],
+							"port": "2000",
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Request reset password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"igortbr2@hotmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:2000/reset",
+							"host": [
+								"localhost"
+							],
+							"port": "2000",
+							"path": [
+								"reset"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:2000/reset/5b6ec4ff91e132d38f14336cd147791081db1110b7a2c096011ad096de13376e",
+							"host": [
+								"localhost"
+							],
+							"port": "2000",
+							"path": [
+								"reset",
+								"5b6ec4ff91e132d38f14336cd147791081db1110b7a2c096011ad096de13376e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify User",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"41f3f885e217635de5e9e7581c03eb12:f972980162799961572d333961e254220119973488bd2815b835879ab4ad41d7ad2ff4942eaf008ade29e99e66e4303d0aa46c1c5fb6e4077542c1398e992a7a42532235077459df755f901f78ca98e8\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:2000/verifyEmail",
+							"host": [
+								"localhost"
+							],
+							"port": "2000",
+							"path": [
+								"verifyEmail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify User Is not Me",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"41f3f885e217635de5e9e7581c03eb12:f972980162799961572d333961e254220119973488bd2815b835879ab4ad41d7ad2ff4942eaf008ade29e99e66e4303d0aa46c1c5fb6e4077542c1398e992a7a42532235077459df755f901f78ca98e8\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:2000/verifyEmail",
+							"host": [
+								"localhost"
+							],
+							"port": "2000",
+							"path": [
+								"verifyEmail"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "form",
+			"item": [
+				{
+					"name": "Get Frorms",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"FORM1\" //FORM1 OR FORM2, default = FORM1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:2000/form/list",
+							"host": [
+								"localhost"
+							],
+							"port": "2000",
+							"path": [
+								"form",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Frorm question",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"type\": \"FORM1\" //FORM1 OR FORM2, default = FORM1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:2000/form/list",
+							"host": [
+								"localhost"
+							],
+							"port": "2000",
+							"path": [
+								"form",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
