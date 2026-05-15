@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "orm:migrate:run": "npx typeorm-ts-node-commonjs migration:run -d src/ormconfig.ts",
-    "orm:migrate:generate": "ts-node ./node_modules/typeorm/cli.js migration:generate -d ./src/ormconfig.ts",
+    "orm:migrate:generate": "ts-node ./node_modules/typeorm/cli.js migration:generate -d ./src/ormconfig.ts diligencias_estabelecimento",
     "orm:seed": "npx ts-node src/data/seed.ts"
   },
   "keywords": [],

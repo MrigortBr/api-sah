@@ -9,7 +9,7 @@ export async function verifyInfoFingerPrint(userAgent: string, ip: string, accep
 
   const fingerFinded = await loginRepo.findOne({
     where: { finger_print: fingerBrowser, id_user, expires_at: MoreThan(new Date()) },
-    relations: { user: true },
+    relations: { user: { permission: true } },
   });
 
   if (fingerFinded) {

@@ -16,6 +16,11 @@ export const descErrors: DescErrors = {
     description: "Você precisa estar logado, para pode acessar esta pagina.",
     statusCode: 403,
   },
+  "PE-NHPR": {
+    message: "Você não tem permissao!",
+    description: "Você precisa estar logado, para pode acessar esta pagina.",
+    statusCode: 401,
+  },
   "PR-RE": {
     message: "Nada alterado!",
     description: "Os dando enviados ja existem no banco, logo nada foi alterado.",

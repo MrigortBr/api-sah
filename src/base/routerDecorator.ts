@@ -12,6 +12,7 @@ export const Get = (path: string, middlewares: Middleware[] = []) => route("get"
 export const Post = (path: string, middlewares: Middleware[] = []) => route("post", path, middlewares);
 export const Delete = (path: string, middlewares: Middleware[] = []) => route("delete", path, middlewares);
 export const Put = (path: string, middlewares: Middleware[] = []) => route("put", path, middlewares);
+export const Patch = (path: string, middlewares: Middleware[] = []) => route("patch", path, middlewares);
 export const Route = (path: string, method: Methods = "get", middlewares: Middleware[] = []) => route(method, path, middlewares);
 
 export function Controller(path: string, middlewares: Middleware[] = []) {

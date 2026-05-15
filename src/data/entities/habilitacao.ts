@@ -1,7 +1,7 @@
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { Estabelecimento } from "./estabelecimento";
-import { TipoHabilitacao } from "./tipo-habilitacao";
 import { HistoricoHabilitacao } from "./historico-habilitacao";
+import { User } from "./User";
 
 @Entity("habilitacao")
 export class Habilitacao {
@@ -10,57 +10,49 @@ export class Habilitacao {
   })
   idHabilitacao: number;
 
+  @ManyToOne(() => User)
+  @JoinColumn({ name: "id_user" })
+  user: User;
+
   @Column({
-    type: "char",
+    type: "varchar",
     length: 7,
   })
   cnes: string;
 
   @Column({
-    name: "codigo_habilitacao",
+    name: "numero_saips",
     type: "varchar",
     length: 10,
   })
-  codigoHabilitacao: string;
+  numeroSaips: string;
 
   @Column({
-    name: "ano_primeira_habilitacao",
-    type: "smallint",
+    name: "numero_unico_protocolo",
+    type: "varchar",
+    length: 20,
   })
-  anoPrimeiraHabilitacao: number;
+  numeroUnicoProtocolo: string;
 
   @Column({
-    name: "portaria_sas",
+    name: "tipo_financiamento",
+    type: "varchar",
+  })
+  tipoFinanciamento: string;
+
+  @Column({
+    name: "situacao",
+    type: "varchar",
+  })
+  situacao: string;
+
+  @Column({
+    name: "portaria_habilitacao",
     type: "varchar",
     length: 300,
     nullable: true,
   })
-  portariaSas?: string;
-
-  @Column({
-    name: "portaria_gm_recurso",
-    type: "varchar",
-    length: 300,
-    nullable: true,
-  })
-  portariaGmRecurso?: string;
-
-  @Column({
-    name: "portaria_gm_recurso_ii",
-    type: "varchar",
-    length: 300,
-    nullable: true,
-  })
-  portariaGmRecursoIi?: string;
-
-  @Column({
-    name: "valor_repasse",
-    type: "numeric",
-    precision: 15,
-    scale: 2,
-    nullable: true,
-  })
-  valorRepasse?: number;
+  portariaHabilitacao?: string;
 
   @Column({
     name: "num_aceleradores_cobaltos",
@@ -70,35 +62,53 @@ export class Habilitacao {
   numAceleradoresCobaltos?: number;
 
   @Column({
-    name: "habilitacao_em_conjunto",
-    type: "varchar",
-    length: 300,
+    name: "inicio_saips",
+    type: "timestamp",
+  })
+  inicioSaips: Date;
+
+  @Column({
+    name: "entrada_decan",
+    type: "timestamp",
+  })
+  entradaDecan: Date;
+
+  @Column({
+    name: "envio_drac",
+    type: "timestamp",
+  })
+  envioDrac: Date;
+
+  @Column({
+    name: "parcela_unica",
+    type: "numeric",
+    precision: 15,
+    scale: 2,
     nullable: true,
   })
-  habilitacaoEmConjunto?: string;
+  parcelaUnica?: number;
+
+  @Column({
+    name: "inpacto_mensal",
+    type: "numeric",
+    precision: 15,
+    scale: 2,
+    nullable: true,
+  })
+  inpactoMensal?: number;
 
   @ManyToOne(
     () => Estabelecimento,
-    est => est.habilitacoes,
+    estabelecimento => estabelecimento.habilitacoes,
   )
   @JoinColumn({
     name: "cnes",
   })
   estabelecimento: Estabelecimento;
 
-  @ManyToOne(
-    () => TipoHabilitacao,
-    tipo => tipo.habilitacoes,
-  )
-  @JoinColumn({
-    name: "codigo_habilitacao",
-    referencedColumnName: "codigo",
-  })
-  tipoHabilitacao: TipoHabilitacao;
-
   @OneToMany(
     () => HistoricoHabilitacao,
-    hist => hist.habilitacao,
+    historico => historico.habilitacao,
   )
   historicos: HistoricoHabilitacao[];
 }

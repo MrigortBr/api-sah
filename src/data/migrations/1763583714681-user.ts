@@ -19,11 +19,6 @@ export class User1763583714681 implements MigrationInterface {
             isNullable: false,
           },
           {
-            name: "position",
-            type: "varchar",
-            isNullable: false,
-          },
-          {
             name: "surname",
             type: "varchar",
             isNullable: false,
