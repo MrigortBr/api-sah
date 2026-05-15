@@ -11,9 +11,6 @@ export abstract class User extends BaseEntity {
   surname: string;
 
   @Column({ nullable: false })
-  position: string;
-
-  @Column({ nullable: false })
   email: string;
 
   @Column({ nullable: false, default: false })

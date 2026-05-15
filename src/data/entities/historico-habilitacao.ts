@@ -1,7 +1,6 @@
 // historico-habilitacao.ts
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Habilitacao } from "./habilitacao";
-import { TipoHabilitacao } from "./tipo-habilitacao";
 
 @Entity("historico_habilitacao")
 export class HistoricoHabilitacao {
@@ -17,9 +16,9 @@ export class HistoricoHabilitacao {
   idHabilitacao: number;
 
   @Column({
-    type: "smallint",
+    type: "varchar",
   })
-  sequencia: number;
+  sequencia: string;
 
   @Column({
     name: "ano_alteracao",
@@ -28,11 +27,11 @@ export class HistoricoHabilitacao {
   anoAlteracao: number;
 
   @Column({
-    name: "codigo_habilitacao_novo",
+    name: "codigos",
     type: "varchar",
-    length: 10,
+    length: 300,
   })
-  codigoHabilitacaoNovo: string;
+  codigos: string;
 
   @ManyToOne(
     () => Habilitacao,
@@ -42,14 +41,4 @@ export class HistoricoHabilitacao {
     name: "id_habilitacao",
   })
   habilitacao: Habilitacao;
-
-  @ManyToOne(
-    () => TipoHabilitacao,
-    tipo => tipo.historicos,
-  )
-  @JoinColumn({
-    name: "codigo_habilitacao_novo",
-    referencedColumnName: "codigo",
-  })
-  tipoHabilitacaoNovo: TipoHabilitacao;
 }

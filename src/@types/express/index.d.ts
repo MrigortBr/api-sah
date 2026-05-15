@@ -5,7 +5,7 @@ import { User } from "../../data/entities/User";
 declare global {
   namespace Express {
     interface Response {
-      success: <T = any>(data?: T, message?: string) => Response;
+      success: <T = any>(data?: T, message?: string, description?: string, statuscode?: number = 200) => Response;
     }
   }
 }

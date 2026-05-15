@@ -1,9 +1,12 @@
-import { Column, Entity, OneToMany, PrimaryColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { Habilitacao } from "./habilitacao";
 import { HistoricoHabilitacao } from "./historico-habilitacao";
 
 @Entity("tipo_habilitacao")
 export class TipoHabilitacao {
+  @PrimaryGeneratedColumn()
+  id_tipo_habilitacao: number;
+
   @PrimaryColumn({
     type: "varchar",
     length: 10,
@@ -24,13 +27,13 @@ export class TipoHabilitacao {
 
   @OneToMany(
     () => Habilitacao,
-    habilitacao => habilitacao.tipoHabilitacao,
+    habilitacao => habilitacao.idHabilitacao,
   )
   habilitacoes: Habilitacao[];
 
   @OneToMany(
     () => HistoricoHabilitacao,
-    historico => historico.tipoHabilitacaoNovo,
+    historico => historico.idHistorico,
   )
   historicos: HistoricoHabilitacao[];
 }
